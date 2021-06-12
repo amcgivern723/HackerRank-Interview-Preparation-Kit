@@ -1,0 +1,26 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+"""class Node:
+    def __init__(self, freq,data):
+        self.freq= freq
+        self.data=data
+        self.left = None
+        self.right = None
+"""
+
+
+def decodeHuff(root, s):
+    current = root
+    result = ''
+    for code in s:
+        if int(code) == 0:
+            current = current.left
+        else:
+            current = current.right
+        if current.left == None and current.right == None:
+            result += current.data
+            current = root
+    print result
